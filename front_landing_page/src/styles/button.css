@@ -1,0 +1,28 @@
+/* button.css */
+
+.button {
+    background-color: #0388A6; /* Azul por defecto */
+    color: #FEFEFF;
+    border: none;
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #056378; 
+}
+
+.button:active {
+    transform: scale(0.98); 
+}
+
+.button.disabled {
+    background-color: #d6d6d6; 
+    cursor: not-allowed;
+}

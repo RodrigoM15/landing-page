@@ -126,6 +126,7 @@
     flex-direction: column;
     padding: 0rem 8rem;
     font-family: 'Montserrat';
+    margin-bottom: 3rem;
 }
 
 .funciones-containter h1{
@@ -186,5 +187,128 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+    }
+}
+
+.publicaciones-containter {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 8rem;
+    font-family: 'Montserrat';
+    margin-bottom: 3rem;
+}
+
+.publicaciones-containter h1 {
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0 0 1.5rem 0;
+}
+
+.publicaciones-containter h2 {
+    font-size: 1.5em;
+    font-weight: 900;
+    margin: 0 0 1.5rem 0;
+    text-decoration: underline;
+}
+
+.encabezado-publicaciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cards-publicaciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espaciado entre los elementos */
+    box-sizing: border-box;
+}
+
+/* Estilo para el primer elemento, que ocupa toda la fila */
+.cards-publicaciones .publicacion:first-child {
+    flex: 1 0 100%; /* Ocupa toda la fila */
+}
+
+/* Estilo para el resto de los elementos, máximo de 3 por fila */
+.cards-publicaciones .publicacion:not(:first-child) {
+    flex: 1 1 calc(33.33% - 1rem); /* Ajuste para mostrar hasta 3 elementos por fila */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 1rem;
+}
+
+/* Estilos para cada publicación */
+.publicacion {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* Estilo para el contenido de la publicación */
+.publicacion-content {
+    padding: 1rem; /* Padding para los elementos que no son el primer hijo */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 50em;
+}
+
+.publicacion-content h3{
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.publicacion-content p{
+    font-size: 1.3rem;
+}
+
+/* Estilo especial para el primer elemento */
+.cards-publicaciones .publicacion:first-child .publicacion-content {
+    padding: 2rem; /* Padding más grande para el primer elemento */
+}
+
+.publicacion-imagen {
+    width: 100%;
+    min-width: 400px;
+    max-width: 800px;
+    height: auto;
+}
+
+.publicacion-titulo {
+    font-size: 1.5em; /* Tamaño de fuente más grande para el primer elemento */
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.publicacion-fecha {
+    font-size: 0.9em;
+    color: #888;
+    margin: 0 0 0.5rem 0;
+}
+
+.fecha-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .cards-publicaciones .publicacion:not(:first-child) {
+        flex: 1 1 calc(50% - 1rem); /* Ocupa la mitad del ancho en pantallas más pequeñas */
+    }
+}
+
+/* Media Query para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    .cards-publicaciones .publicacion:not(:first-child) {
+        flex: 1 1 100%; /* Ocupa el ancho completo en pantallas muy pequeñas */
     }
 }
