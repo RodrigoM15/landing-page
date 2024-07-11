@@ -10,6 +10,13 @@ const items = [
   {id: 3, icon: iconoMano, texto: 'Lorem ipsum' },
   {id: 4, icon: iconoMano, texto: 'Lorem ipsum' },
 ]
+
+const funciones = [
+  {id: 1, titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr', texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.'},
+  {id: 2, titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr', texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.'},
+  {id: 3, titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr', texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.'},
+  {id: 4, titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr', texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.'},
+]
 function App() {
 
   return (
@@ -17,24 +24,39 @@ function App() {
       {/* Barra de navegacion */}
       <NavBar/>
 
-      {/* Imagen principal con titulo */}
-      <div className="background-container" style={{ backgroundImage: `url(${comedor})` }}>
-        <div className="overlay">
-          <h1>LOGO DE INSTITUCIÓN</h1>
-          <h1>FORMATO PNG</h1>
-        </div>
-      </div>
-
-      {/* Fila de items */}
-      <div className="items-row">
-        {items.map((item) => (
-          <div key={item.id} className="item">
-            <img src={item.icon} alt={`Icon ${item.id}`} className="item-icon" />
-            <p className="item-text">{item.texto}</p>
+      <div className='scrollable-content'>
+        {/* Imagen principal con titulo */}
+        <div className="background-container" style={{ backgroundImage: `url(${comedor})` }}>
+          <div className="overlay">
+            <h1>LOGO DE INSTITUCIÓN</h1>
+            <h1>FORMATO PNG</h1>
           </div>
-        ))}
-      </div>
+        </div>
 
+        {/* Fila de items */}
+        <div className="items-row">
+          {items.map((item) => (
+            <div key={item.id} className="item">
+              <img src={item.icon} alt={`Icon ${item.id}`} className="item-icon" />
+              <p className="item-text">{item.texto}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Funciones */}
+        <div className='funciones-containter'>
+          <h1>Funciones</h1>
+          <div className='funciones-cards'>
+            {funciones.map((funcion) => (
+              <div key={funcion.id} className="card-funcion">
+                <h2>{funcion.titulo}</h2>
+                <p>{funcion.texto}</p>
+            </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
       
     </div>
   )
