@@ -23,7 +23,7 @@ const publicaciones = [
   {
     id: 1,
     imagen: comedor, 
-    titulo: 'Título de la Publicación 1',
+    titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr',
     texto: 'Proin rutrum massa orci, vel imperdiet lorem imperdiet mattis. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque est felis, rutrum id ligula sit amet, molestie consequat risus. Curabitur porttitor lectus iaculis porta vulputate. Vestibulum aliquet erat ut pharetra consectetur. Donec tempor at tellus malesuada aliquam. Quisque rutrum felis massa, tincidunt dapibus nulla suscipit ac. Pellentesque enim eros, aliquet ut congue at, ullamcorper sit amet odio. Nulla porta lobortis arcu, eu vulputate metus efficitur ac. Vivamus ut augue in arcu volutpat finibus. Nullam vitae turpis aliquam, sodales nunc sed, posuere ex. Aenean malesuada suscipit ipsum, eu imperdiet turpis condimentum non.',
     fecha: '26 de mayo 2024', 
     enlace: 'https://example.com/link1', 
@@ -31,7 +31,7 @@ const publicaciones = [
   {
     id: 2,
     imagen: comedor,
-    titulo: 'Título de la Publicación 2',
+    titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr',
     texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.',
     fecha: '26 de mayo 2024',
     enlace: 'https://example.com/link2',
@@ -39,7 +39,7 @@ const publicaciones = [
   {
     id: 3,
     imagen: comedor,
-    titulo: 'Título de la Publicación 3',
+    titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr',
     texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.',
     fecha: '26 de mayo 2024',
     enlace: 'https://example.com/link3',
@@ -47,7 +47,7 @@ const publicaciones = [
   {
     id: 4,
     imagen: comedor,
-    titulo: 'Título de la Publicación 4',
+    titulo: 'Lorem ipsum dolor sit amet, conseteur sadipscing elitr',
     texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum erat non massa tristique.',
     fecha: '26 de mayo 2024',
     enlace: 'https://example.com/link4',
@@ -105,29 +105,49 @@ function App() {
             <h2>Ver todos</h2>
           </div>
           <div className='cards-publicaciones'>
+
             {publicaciones.map((pub) => (
               <div key={pub.id} className='publicacion'>
                 <img src={pub.imagen} alt={pub.titulo} className='publicacion-imagen' />
                 <div className='publicacion-content'>
                   <h3 className='publicacion-titulo'>{pub.titulo}</h3>
-                  <p>{pub.texto}</p>
-                  <div className='fecha-button'>
-                    <p className='publicacion-fecha'>{pub.fecha}</p>
-                    <Button
-                      text={'Leer artículo'}
-                    />
-                  </div>
-                  
+                  {pub.id === 1 && (
+                    <>
+                      <p>{pub.texto}</p>
+                      <div className='fecha-button'>
+                        <p className='publicacion-fecha'>{pub.fecha}</p>
+                        <Button
+                          text={'Leer artículo'}
+                        />
+                      </div>
+                    </>
+                  )}
+                  {pub.id != 1 && (
+                    <>
+                      <p className='publicacion-fecha'>{pub.fecha}</p>
+                    </>
+                  )}
                 </div>
-                
               </div>
             ))}
           </div>
         </div>
 
-      </div>
-        
+        {/* Calendario */}
+        <div className='calendario-containter'>
+          <h1>Calendario</h1>
+          <div className='calendario-body'>
+            <div className='cards-calendario'>
 
+            </div>
+            <div className='evento-calendario'>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }

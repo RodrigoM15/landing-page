@@ -252,7 +252,7 @@
 
 /* Estilo para el contenido de la publicación */
 .publicacion-content {
-    padding: 1rem; /* Padding para los elementos que no son el primer hijo */
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -260,7 +260,7 @@
 }
 
 .publicacion-content h3{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
 }
 
@@ -311,4 +311,18 @@
     .cards-publicaciones .publicacion:not(:first-child) {
         flex: 1 1 100%; /* Ocupa el ancho completo en pantallas muy pequeñas */
     }
+}
+
+.calendario-containter {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 8rem;
+    font-family: 'Montserrat';
+    margin-bottom: 3rem;
+}
+
+.calendario-containter h1{
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0 0 1.5rem 0;
 }
