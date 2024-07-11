@@ -4,6 +4,7 @@ import NavBar from './components/nav_bar'
 import comedor from './assets/comedor.jpg'
 import iconoMano from './assets/Mano.svg'
 import Button from './components/button'
+import { Card_calendario, Card_calendario_principal } from './components/card_calendario'
 
 const items = [
   {id: 1, icon: iconoMano, texto: 'Lorem ipsum' },
@@ -54,12 +55,51 @@ const publicaciones = [
   },
 ];
 
+const eventos = [
+  {
+    id: 1,
+    fecha: '15062024',
+    titulo: 'Lorem ipsum',
+    descripcion: 'Proin rutrum massa orci, vel imperdiet lorem imperdiet mattis.',
+    enlace: 'enlace.descarga',
+    ubicacion: 'Lorem ipsum dolor sit amet, conseteur',
+    imagen: comedor
+  },
+  {
+    id: 2,
+    fecha: '24062024',
+    titulo: 'Lorem ipsum dolor',
+    descripcion: 'Vivamus ut augue in arcu volutpat finibus. Nullam vitae turpis aliquam, sodales nunc sed, posuere ex.',
+    enlace: 'enlace.descarga',
+    ubicacion: 'Lorem ipsum dolor sit amet, conseteur',
+    imagen: comedor
+  },
+  {
+    id: 3,
+    fecha: '27062024',
+    titulo: 'Lorem ipsum dolor sit amen',
+    descripcion: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque est felis, rutrum id ligula sit amet.',
+    enlace: 'enlace.descarga',
+    ubicacion: 'Lorem ipsum dolor sit amet, conseteur',
+    imagen: comedor
+  },
+  {
+    id: 4,
+    fecha: '30062024',
+    titulo: 'Lorem ipsum dolor sit amen, consetetur',
+    descripcion: 'Aenean malesuada suscipit ipsum, eu imperdiet turpis condimentum non.',
+    enlace: 'enlace.descarga',
+    ubicacion: 'Lorem ipsum dolor sit amet, conseteur',
+    imagen: comedor
+  },
+]
 
 function App() {
-  const handleClick = () => {
-    alert('Button clicked!');
-  };
+  const [eventoSeleccionado, setEventoSeleccionado] = useState(eventos[0])
 
+  const seleccionarEvento = (evento) => {
+    setEventoSeleccionado(evento);
+  };
 
   return (
     <div className='body'>
@@ -138,14 +178,28 @@ function App() {
           <h1>Calendario</h1>
           <div className='calendario-body'>
             <div className='cards-calendario'>
-
+              {eventos.map((evento) => (
+                <Card_calendario
+                  fecha={evento.fecha}
+                  titulo={evento.titulo}
+                  enlace={evento.enlace}
+                  onClick={() => seleccionarEvento(evento)}
+                  isSelected={evento.id === eventoSeleccionado.id}
+                />
+              ))}
             </div>
             <div className='evento-calendario'>
-
+              <Card_calendario_principal
+                imagen = {eventoSeleccionado.imagen}
+                descripcion={eventoSeleccionado.descripcion}
+                ubicacion={eventoSeleccionado.ubicacion}
+              />
             </div>
-
           </div>
         </div>
+
+        {/* Pie de pagina */}
+        <div className='pie-pagina'/>
 
       </div>
     </div>
