@@ -1,7 +1,7 @@
 .body {
     display: flex;
     flex-direction: column;
-    
+    overflow-y: auto;
 }
 
 .background-container {
@@ -12,9 +12,9 @@
     background-position: center;
     background-repeat: no-repeat; 
     min-height: 400px;
-  }
+}
   
-  .overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,20 +26,91 @@
     padding-left: 25%; 
     background-color: rgba(0, 0, 0, 0.5); 
     box-sizing: border-box;
-  }
+}
   
-  .overlay h1, .overlay h2 {
+.overlay h1, .overlay h2 {
     color: #FEFEFF;
     margin: 0;
     font-family: 'Montserrat';
-    font-weight: 800;
-  }
+    font-weight: 900;
+}
   
-  .overlay h1 {
+.overlay h1 {
     font-size: 4em;
-  }
+}
   
-  .overlay h2 {
+.overlay h2 {
     font-size: 2em;
-  }
+}
   
+.items-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 1rem; 
+    padding: 1rem; 
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 250px;
+    min-height: 212px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.item-icon {
+    width: 150px; /* Ajusta el tamaño del ícono */
+    height: 150px;
+    background-color: #FEFEFF;
+}
+
+.item-text {
+    font-size: 1.2rem; /* Tamaño de fuente ajustable */
+    color: #262626; /* Color del texto */
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+/* Media Query para pantallas medianas */
+@media (max-width: 1024px) {
+    .item {
+        max-width: 45%; /* Los ítems ocupan hasta el 45% del ancho en pantallas medianas */
+    }
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .item {
+        max-width: 100%; /* Los ítems ocupan todo el ancho en pantallas pequeñas */
+    }
+
+    .item-icon {
+        width: 150px; /* Tamaño del ícono más pequeño en pantallas pequeñas */
+        height: 150px;
+    }
+
+    .item-text {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+}
+
+/* Media Query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .item {
+        max-width: 100%; /* Asegura que los ítems se ajusten a pantallas muy pequeñas */
+        padding: 0.5rem; /* Reduce el padding en pantallas muy pequeñas */
+    }
+
+    .item-icon {
+        width: 150px; /* Tamaño del ícono aún más pequeño */
+        height: 150px;
+    }
+
+    .item-text {
+        font-size: 0.8rem; /* Tamaño de fuente aún más pequeño */
+    }
+}
