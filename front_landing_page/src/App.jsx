@@ -7,6 +7,7 @@ import Button from './components/button'
 import { Card_calendario, Card_calendario_principal } from './components/card_calendario'
 import useEventos from './hooks/use_evento'
 import usePublicaciones from './hooks/use_publicacion'
+import { convertirFecha } from './utils/utils'
 
 const items = [
   {id: 1, icon: iconoMano, texto: 'Lorem ipsum' },
@@ -57,7 +58,7 @@ const publicaciones = [
   },
 ];
 
-const eventos = [
+const constEventos = [
   {
     id: 1,
     fecha: '15062024',
@@ -101,7 +102,7 @@ function App() {
   const { eventos } = useEventos();
   const { publicaciones } = usePublicaciones();
 
-  const [eventoSeleccionado, setEventoSeleccionado] = useState(eventos[0])
+  const [eventoSeleccionado, setEventoSeleccionado] = useState(constEventos[0])
   const seleccionarEvento = (evento) => {
     setEventoSeleccionado(evento);
   };
@@ -150,7 +151,6 @@ function App() {
             <h2>Ver todos</h2>
           </div>
           <div className='cards-publicaciones'>
-
             {publicaciones.map((pub) => (
               <div key={pub.id} className='publicacion'>
                 <img src={pub.imagen} alt={pub.titulo} className='publicacion-imagen' />
@@ -160,7 +160,7 @@ function App() {
                     <>
                       <p>{pub.texto}</p>
                       <div className='fecha-button'>
-                        <p className='publicacion-fecha'>{pub.fecha}</p>
+                        <p className='publicacion-fecha'>{convertirFecha(pub.fecha)}</p>
                         <Button
                           text={'Leer artículo'}
                         />
@@ -185,6 +185,7 @@ function App() {
             <div className='cards-calendario'>
               {eventos.map((evento) => (
                 <Card_calendario
+                  key={evento.id}
                   fecha={evento.fecha}
                   titulo={evento.titulo}
                   enlace={evento.enlace}
@@ -195,7 +196,7 @@ function App() {
             </div>
             <div className='evento-calendario'>
               <Card_calendario_principal
-                imagen = {eventoSeleccionado.imagen}
+                imagen = {eventoSeleccionado.imagen || comedor}
                 descripcion={eventoSeleccionado.descripcion}
                 ubicacion={eventoSeleccionado.ubicacion}
               />
