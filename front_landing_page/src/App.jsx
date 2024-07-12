@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './styles/App.css'
 import NavBar from './components/nav_bar'
 import comedor from './assets/comedor.jpg'
 import iconoMano from './assets/Mano.svg'
 import Button from './components/button'
 import { Card_calendario, Card_calendario_principal } from './components/card_calendario'
+import useEventos from './hooks/use_evento'
+import usePublicaciones from './hooks/use_publicacion'
 
 const items = [
   {id: 1, icon: iconoMano, texto: 'Lorem ipsum' },
@@ -95,8 +97,11 @@ const eventos = [
 ]
 
 function App() {
-  const [eventoSeleccionado, setEventoSeleccionado] = useState(eventos[0])
+  
+  const { eventos } = useEventos();
+  const { publicaciones } = usePublicaciones();
 
+  const [eventoSeleccionado, setEventoSeleccionado] = useState(eventos[0])
   const seleccionarEvento = (evento) => {
     setEventoSeleccionado(evento);
   };

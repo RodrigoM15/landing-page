@@ -2,7 +2,7 @@ package com.solmark.back_landing_page.models;
 import java.util.Date;
 
 public class Publicacion {
-    private Long id;
+    private int id;
     private byte[] imagen;
     private String titulo;
     private String texto;
@@ -12,7 +12,7 @@ public class Publicacion {
     // Constructores
     public Publicacion() {}
 
-    public Publicacion(Long id, byte[] imagen, String titulo, String texto, Date fecha, String enlace) {
+    public Publicacion(int id, byte[] imagen, String titulo, String texto, Date fecha, String enlace) {
         this.id = id;
         this.imagen = imagen;
         this.titulo = titulo;
@@ -22,11 +22,11 @@ public class Publicacion {
     }
 
     // Getters y Setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

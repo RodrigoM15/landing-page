@@ -2,7 +2,7 @@ package com.solmark.back_landing_page.models;
 import java.util.Date;
 
 public class Evento {
-    private Long id;
+    private int id;
     private Date fecha;
     private String titulo;
     private String descripcion;
@@ -13,7 +13,7 @@ public class Evento {
     // Constructores
     public Evento() {}
 
-    public Evento(Long id, Date fecha, String titulo, String descripcion, String enlace, String ubicacion, byte[] imagen) {
+    public Evento(int id, Date fecha, String titulo, String descripcion, String enlace, String ubicacion, byte[] imagen) {
         this.id = id;
         this.fecha = fecha;
         this.titulo = titulo;
@@ -24,11 +24,11 @@ public class Evento {
     }
 
     // Getters y Setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
