@@ -169,7 +169,7 @@ function App() {
                   )}
                   {pub.id != 1 && (
                     <>
-                      <p className='publicacion-fecha'>{pub.fecha}</p>
+                      <p className='publicacion-fecha'>{convertirFecha(pub.fecha)}</p>
                     </>
                   )}
                 </div>
