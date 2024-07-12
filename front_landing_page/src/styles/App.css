@@ -209,6 +209,7 @@
     font-weight: 900;
     margin: 0 0 1.5rem 0;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .encabezado-publicaciones {
